@@ -77,9 +77,11 @@ function ReportPage() {
       <Section title="1 · Executive summary">
         <Panel>
           <p className="text-sm leading-relaxed text-foreground/90">
-            An authorized, time-boxed assessment of the synthetic {engagement.client} environment
-            validated {kpis.findingsValidated} findings across {kpis.assetsInScope} in-scope assets:{" "}
-            {kpis.critical} Critical, {kpis.high} High, {kpis.medium} Medium, and {kpis.low} Low.
+            This portfolio simulation models an authorized, time-boxed assessment of the{" "}
+            {engagement.client} environment, in which {kpis.findingsValidated} findings were
+            validated across 8 in-scope synthetic assets: {kpis.critical} Critical, {kpis.high}{" "}
+            High, {kpis.medium} Medium, and {kpis.low} Low.
+
             The dominant theme was authorization enforced inconsistently between the interface and
             the server, compounded by identity entitlements broader than their documented purpose.
             Individually moderate configuration weaknesses combined into {attackPaths.length}{" "}
