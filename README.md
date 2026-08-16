@@ -1,10 +1,19 @@
 # Ethical Hacking & Attack Surface Validation Lab
 
-**Author:** Rachel Love · **Engagement codename:** Project Nightwatch (synthetic)
+**Project Nightwatch** is a recruiter-facing cybersecurity portfolio project by **Rachel Love** demonstrating an authorization-first approach to ethical hacking, attack surface validation, evidence-based security assessment, remediation, and retesting.
 
-An interactive, recruiter-facing portfolio lab that models an authorization-first security assessment end to end:
-scope and rules of engagement → attack-surface inventory → validated findings → attack-path reasoning → risk
-prioritization → remediation → retest → executive reporting.
+**Author:** Rachel Love  
+**Engagement codename:** Project Nightwatch *(synthetic portfolio environment)*
+
+### Project at a glance
+
+**8 in-scope synthetic assets** • **12 validated findings** • **3 illustrative attack paths** • **9 remediated or closed findings** • **9 passed retests**
+
+The lab models an end-to-end security assessment lifecycle:
+
+**Scope & Rules of Engagement → Attack Surface Inventory → Validated Findings → Attack-Path Analysis → Risk Prioritization → Remediation → Retesting → Framework Mapping → Executive Reporting**
+
+The project emphasizes responsible testing, evidence-based conclusions, business-impact analysis, and clear communication of security risk rather than operational intrusion capability.
 
 ## Synthetic-data boundary (read first)
 
