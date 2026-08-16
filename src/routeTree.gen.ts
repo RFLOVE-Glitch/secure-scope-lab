@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AttackPathsRouteImport } from './routes/attack-paths'
 import { Route as AttackSurfaceRouteImport } from './routes/attack-surface'
 import { Route as FindingsRouteImport } from './routes/findings'
 import { Route as ScopeRouteImport } from './routes/scope'
@@ -17,6 +18,11 @@ import { Route as ScopeRouteImport } from './routes/scope'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AttackPathsRoute = AttackPathsRouteImport.update({
+  id: '/attack-paths',
+  path: '/attack-paths',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AttackSurfaceRoute = AttackSurfaceRouteImport.update({
@@ -37,12 +43,14 @@ const ScopeRoute = ScopeRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/attack-paths': typeof AttackPathsRoute
   '/attack-surface': typeof AttackSurfaceRoute
   '/findings': typeof FindingsRoute
   '/scope': typeof ScopeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/attack-paths': typeof AttackPathsRoute
   '/attack-surface': typeof AttackSurfaceRoute
   '/findings': typeof FindingsRoute
   '/scope': typeof ScopeRoute
@@ -50,20 +58,28 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/attack-paths': typeof AttackPathsRoute
   '/attack-surface': typeof AttackSurfaceRoute
   '/findings': typeof FindingsRoute
   '/scope': typeof ScopeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/attack-surface' | '/findings' | '/scope'
+  fullPaths: '/' | '/attack-paths' | '/attack-surface' | '/findings' | '/scope'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/attack-surface' | '/findings' | '/scope'
-  id: '__root__' | '/' | '/attack-surface' | '/findings' | '/scope'
+  to: '/' | '/attack-paths' | '/attack-surface' | '/findings' | '/scope'
+  id:
+    | '__root__'
+    | '/'
+    | '/attack-paths'
+    | '/attack-surface'
+    | '/findings'
+    | '/scope'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AttackPathsRoute: typeof AttackPathsRoute
   AttackSurfaceRoute: typeof AttackSurfaceRoute
   FindingsRoute: typeof FindingsRoute
   ScopeRoute: typeof ScopeRoute
@@ -76,6 +92,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/attack-paths': {
+      id: '/attack-paths'
+      path: '/attack-paths'
+      fullPath: '/attack-paths'
+      preLoaderRoute: typeof AttackPathsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/attack-surface': {
@@ -104,6 +127,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AttackPathsRoute: AttackPathsRoute,
   AttackSurfaceRoute: AttackSurfaceRoute,
   FindingsRoute: FindingsRoute,
   ScopeRoute: ScopeRoute,
