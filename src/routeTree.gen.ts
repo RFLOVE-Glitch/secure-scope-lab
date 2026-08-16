@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AttackSurfaceRouteImport } from './routes/attack-surface'
 import { Route as ScopeRouteImport } from './routes/scope'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AttackSurfaceRoute = AttackSurfaceRouteImport.update({
+  id: '/attack-surface',
+  path: '/attack-surface',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ScopeRoute = ScopeRouteImport.update({
@@ -25,27 +31,31 @@ const ScopeRoute = ScopeRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/attack-surface': typeof AttackSurfaceRoute
   '/scope': typeof ScopeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/attack-surface': typeof AttackSurfaceRoute
   '/scope': typeof ScopeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/attack-surface': typeof AttackSurfaceRoute
   '/scope': typeof ScopeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/scope'
+  fullPaths: '/' | '/attack-surface' | '/scope'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/scope'
-  id: '__root__' | '/' | '/scope'
+  to: '/' | '/attack-surface' | '/scope'
+  id: '__root__' | '/' | '/attack-surface' | '/scope'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AttackSurfaceRoute: typeof AttackSurfaceRoute
   ScopeRoute: typeof ScopeRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/attack-surface': {
+      id: '/attack-surface'
+      path: '/attack-surface'
+      fullPath: '/attack-surface'
+      preLoaderRoute: typeof AttackSurfaceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/scope': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AttackSurfaceRoute: AttackSurfaceRoute,
   ScopeRoute: ScopeRoute,
 }
 export const routeTree = rootRouteImport
