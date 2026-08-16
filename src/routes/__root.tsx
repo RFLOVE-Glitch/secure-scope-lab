@@ -30,7 +30,11 @@ function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-3 md:px-8">
-        <Link to="/" className="flex items-center gap-2.5 rounded-md" onClick={() => setOpen(false)}>
+        <Link
+          to="/"
+          className="flex items-center gap-2.5 rounded-md"
+          onClick={() => setOpen(false)}
+        >
           <span className="flex size-8 items-center justify-center rounded-md border border-primary/40 bg-primary/10 text-primary">
             <ShieldCheck className="size-4" aria-hidden />
           </span>
@@ -72,7 +76,11 @@ function SiteHeader() {
       </div>
 
       {open ? (
-        <nav id="mobile-nav" aria-label="Sections" className="border-t border-border bg-surface xl:hidden">
+        <nav
+          id="mobile-nav"
+          aria-label="Sections"
+          className="border-t border-border bg-surface xl:hidden"
+        >
           <ul className="mx-auto grid w-full max-w-6xl gap-1 px-5 py-3 sm:grid-cols-2 md:px-8">
             {NAV.map((item) => (
               <li key={item.to}>
@@ -99,10 +107,12 @@ function SiteFooter() {
     <footer className="border-t border-border bg-surface/60">
       <div className="mx-auto grid w-full max-w-6xl gap-6 px-5 py-10 md:grid-cols-3 md:px-8">
         <div>
-          <p className="text-sm font-semibold">Ethical Hacking &amp; Attack Surface Validation Lab</p>
+          <p className="text-sm font-semibold">
+            Ethical Hacking &amp; Attack Surface Validation Lab
+          </p>
           <p className="mt-2 text-sm text-muted-foreground">
-            Portfolio demonstration by Rachel Love. Authorized testing, evidence-based findings, actionable
-            remediation.
+            Portfolio demonstration by Rachel Love. Authorized testing, evidence-based findings,
+            actionable remediation.
           </p>
         </div>
         <div>
@@ -120,8 +130,8 @@ function SiteFooter() {
         <div>
           <p className="label-eyebrow">Disclosure</p>
           <p className="mt-2 text-sm text-muted-foreground">
-            All data is synthetic. No real organization was tested, breached, certified, or made compliant. Mappings
-            are analytical, not compliance attestations.
+            All data is synthetic. No real organization was tested, breached, certified, or made
+            compliant. Mappings are analytical, not compliance attestations.
           </p>
         </div>
       </div>
@@ -161,7 +171,9 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-[70vh] items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">This section didn't load</h1>
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+          This section didn't load
+        </h1>
         <p className="mt-2 text-sm text-muted-foreground">
           Something went wrong rendering the engagement data. Try again or return to the overview.
         </p>

@@ -15,7 +15,7 @@ and attack path is synthetic or an intentionally vulnerable lab example:
 - Addresses use only the `198.51.100.0/24` documentation range and the private `10.20.0.0/16` range.
 - No real system, organization, account, or third-party target was scanned, probed, exploited, or contacted.
 - The app contains **no** working exploit payloads, bypass strings, weaponized commands, credential-theft
-  techniques, persistence, destructive actions, or authorization-evasion instructions. Evidence is *described*, never
+  techniques, persistence, destructive actions, or authorization-evasion instructions. Evidence is _described_, never
   operationalized — a rule enforced by an automated test.
 - Framework mappings (OWASP, CWE, MITRE ATT&CK, NIST CSF 2.0) demonstrate security-analysis reasoning. They are not a
   certification, a compliance attestation, or a formal assessment of any organization.
@@ -23,16 +23,16 @@ and attack path is synthetic or an intentionally vulnerable lab example:
 
 ## Featured capabilities
 
-| Section | What it demonstrates |
-| --- | --- |
-| Overview (`/`) | Executive KPIs, severity distribution, findings by asset class, remediation status, risk trend from initial validation to retest, methodology flow, portfolio metadata |
-| Scope & ROE (`/scope`) | Engagement metadata, authorized vs excluded assets, allowed techniques, prohibited actions, evidence handling, stop conditions, escalation path, authorization statement |
-| Attack Surface (`/attack-surface`) | 8 synthetic assets across internet-facing / application / identity / internal trust zones, with exposure, ownership, authentication boundary, last review, risk notes, and an illustrative zone map |
-| Findings (`/findings`) | 12 validated findings (EH-001–EH-012) with severity, confidence, described evidence, business impact, remediation, retest result, and CWE / OWASP / ATT&CK / NIST CSF mappings; severity filtering |
-| Attack Paths (`/attack-paths`) | 3 illustrative paths showing how moderate findings compose, with prerequisites, trust-boundary transitions, detection opportunities, remediation breakpoints, and residual risk |
-| Remediation & Retest (`/remediation`) | Remediation board with owners, target dates, priority, compensating controls; before/after comparisons; retest workflow; "a change is not a closure" |
-| Framework Mapping (`/framework`) | Full cross-reference plus grouped OWASP / CWE / ATT&CK views and NIST CSF 2.0 function alignment |
-| Final Report (`/report`) | Export-ready deliverable layout: executive summary, scope, methodology, risk summary, top findings, attack-path summary, prioritized plan, retest summary, residual risk, limitations, disclosure |
+| Section                               | What it demonstrates                                                                                                                                                                                |
+| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Overview (`/`)                        | Executive KPIs, severity distribution, findings by asset class, remediation status, risk trend from initial validation to retest, methodology flow, portfolio metadata                              |
+| Scope & ROE (`/scope`)                | Engagement metadata, authorized vs excluded assets, allowed techniques, prohibited actions, evidence handling, stop conditions, escalation path, authorization statement                            |
+| Attack Surface (`/attack-surface`)    | 8 synthetic assets across internet-facing / application / identity / internal trust zones, with exposure, ownership, authentication boundary, last review, risk notes, and an illustrative zone map |
+| Findings (`/findings`)                | 12 validated findings (EH-001–EH-012) with severity, confidence, described evidence, business impact, remediation, retest result, and CWE / OWASP / ATT&CK / NIST CSF mappings; severity filtering  |
+| Attack Paths (`/attack-paths`)        | 3 illustrative paths showing how moderate findings compose, with prerequisites, trust-boundary transitions, detection opportunities, remediation breakpoints, and residual risk                     |
+| Remediation & Retest (`/remediation`) | Remediation board with owners, target dates, priority, compensating controls; before/after comparisons; retest workflow; "a change is not a closure"                                                |
+| Framework Mapping (`/framework`)      | Full cross-reference plus grouped OWASP / CWE / ATT&CK views and NIST CSF 2.0 function alignment                                                                                                    |
+| Final Report (`/report`)              | Export-ready deliverable layout: executive summary, scope, methodology, risk summary, top findings, attack-path summary, prioritized plan, retest summary, residual risk, limitations, disclosure   |
 
 ## Architecture
 

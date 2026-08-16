@@ -31,15 +31,19 @@ function AttackPathsPage() {
   return (
     <>
       <header className="relative overflow-hidden border-b border-border">
-        <div aria-hidden className="grid-backdrop pointer-events-none absolute inset-0 opacity-50" />
+        <div
+          aria-hidden
+          className="grid-backdrop pointer-events-none absolute inset-0 opacity-50"
+        />
         <div aria-hidden className="hero-glow pointer-events-none absolute inset-0" />
         <div className="relative mx-auto w-full max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <p className="label-eyebrow">Phase 05 · Attack-path analysis</p>
           <h1 className="mt-3 text-3xl font-semibold text-balance md:text-4xl">Attack Paths</h1>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            Severity per finding understates risk when weaknesses compose. These illustrative paths show how several
-            moderate synthetic findings combine to cross a trust boundary that no single finding crosses alone. Each
-            path is a narrative model — the diagrams are non-executable and contain no reproduction detail.
+            Severity per finding understates risk when weaknesses compose. These illustrative paths
+            show how several moderate synthetic findings combine to cross a trust boundary that no
+            single finding crosses alone. Each path is a narrative model — the diagrams are
+            non-executable and contain no reproduction detail.
           </p>
         </div>
       </header>
@@ -58,12 +62,19 @@ function AttackPathsPage() {
                   {path.steps.map((step, i) => (
                     <li key={step.action} className="flex flex-1 items-center gap-3">
                       <div className="flex-1 rounded-lg border border-border bg-surface-raised p-4">
-                        <p className="font-mono text-[0.65rem] tracking-widest text-primary uppercase">{step.zone}</p>
+                        <p className="font-mono text-[0.65rem] tracking-widest text-primary uppercase">
+                          {step.zone}
+                        </p>
                         <p className="mt-1.5 text-sm leading-relaxed">{step.action}</p>
-                        <p className="mt-2 font-mono text-[0.65rem] text-muted-foreground">↳ {step.boundary}</p>
+                        <p className="mt-2 font-mono text-[0.65rem] text-muted-foreground">
+                          ↳ {step.boundary}
+                        </p>
                       </div>
                       {i < path.steps.length - 1 ? (
-                        <ChevronRight className="hidden size-5 shrink-0 text-muted-foreground lg:block" aria-hidden />
+                        <ChevronRight
+                          className="hidden size-5 shrink-0 text-muted-foreground lg:block"
+                          aria-hidden
+                        />
                       ) : null}
                     </li>
                   ))}
@@ -83,12 +94,17 @@ function AttackPathsPage() {
                     {path.findings.map((id) => {
                       const f = getFinding(id);
                       return (
-                        <li key={id} className="rounded-md border border-border bg-surface-raised px-3 py-2">
+                        <li
+                          key={id}
+                          className="rounded-md border border-border bg-surface-raised px-3 py-2"
+                        >
                           <div className="flex items-center justify-between gap-2">
                             <span className="font-mono text-xs text-primary">{id}</span>
                             {f ? <SeverityBadge severity={f.severity} /> : null}
                           </div>
-                          <p className="mt-1 text-sm text-muted-foreground">{f ? f.title : "Finding not found"}</p>
+                          <p className="mt-1 text-sm text-muted-foreground">
+                            {f ? f.title : "Finding not found"}
+                          </p>
                         </li>
                       );
                     })}
@@ -105,7 +121,9 @@ function AttackPathsPage() {
               <div className="grid gap-4 lg:grid-cols-3">
                 <Panel className="lg:col-span-1">
                   <h3 className="text-sm font-semibold text-high">Business impact</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{path.businessImpact}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {path.businessImpact}
+                  </p>
                 </Panel>
                 <Panel>
                   <h3 className="text-sm font-semibold text-verified">Remediation breakpoints</h3>

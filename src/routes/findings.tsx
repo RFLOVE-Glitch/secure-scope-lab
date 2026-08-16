@@ -3,7 +3,14 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { countBySeverity, findings, getAsset } from "@/data/lab";
 import type { Severity } from "@/data/schemas";
-import { EmptyState, Panel, ResponsibleTestingNotice, Section, SeverityBadge, StatusPill } from "@/components/lab/primitives";
+import {
+  EmptyState,
+  Panel,
+  ResponsibleTestingNotice,
+  Section,
+  SeverityBadge,
+  StatusPill,
+} from "@/components/lab/primitives";
 
 const TITLE = "Findings Register — 12 Validated Synthetic Findings | Nightwatch Lab";
 const DESCRIPTION =
@@ -27,7 +34,8 @@ function FindingsPage() {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]>("All");
 
   const visible = useMemo(
-    () => (filter === "All" ? findings : findings.filter((f) => f.severity === (filter as Severity))),
+    () =>
+      filter === "All" ? findings : findings.filter((f) => f.severity === (filter as Severity)),
     [filter],
   );
 
@@ -36,20 +44,28 @@ function FindingsPage() {
   return (
     <>
       <header className="relative overflow-hidden border-b border-border">
-        <div aria-hidden className="grid-backdrop pointer-events-none absolute inset-0 opacity-50" />
+        <div
+          aria-hidden
+          className="grid-backdrop pointer-events-none absolute inset-0 opacity-50"
+        />
         <div aria-hidden className="hero-glow pointer-events-none absolute inset-0" />
         <div className="relative mx-auto w-full max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <p className="label-eyebrow">Phase 04 · Validation</p>
-          <h1 className="mt-3 text-3xl font-semibold text-balance md:text-4xl">Findings Register</h1>
+          <h1 className="mt-3 text-3xl font-semibold text-balance md:text-4xl">
+            Findings Register
+          </h1>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            Each entry is a validated finding: confirmed to exist with the minimum non-destructive interaction
-            necessary, rated on business impact rather than scanner score, and recorded with an honest confidence
-            level. Evidence is described in narrative form — this register contains no payloads, bypass strings, or
-            reproduction commands.
+            Each entry is a validated finding: confirmed to exist with the minimum non-destructive
+            interaction necessary, rated on business impact rather than scanner score, and recorded
+            with an honest confidence level. Evidence is described in narrative form — this register
+            contains no payloads, bypass strings, or reproduction commands.
           </p>
           <dl className="mt-6 flex flex-wrap gap-4">
             {counts.map((c) => (
-              <div key={c.severity} className="rounded-lg border border-border bg-surface px-4 py-2">
+              <div
+                key={c.severity}
+                className="rounded-lg border border-border bg-surface px-4 py-2"
+              >
                 <dt className="label-eyebrow">{c.severity}</dt>
                 <dd className="font-display text-xl font-semibold">{c.count}</dd>
               </div>
@@ -58,7 +74,10 @@ function FindingsPage() {
         </div>
       </header>
 
-      <Section title="Filter by severity" description="Twelve synthetic findings across eight lab assets.">
+      <Section
+        title="Filter by severity"
+        description="Twelve synthetic findings across eight lab assets."
+      >
         <div role="group" aria-label="Filter findings by severity" className="flex flex-wrap gap-2">
           {FILTERS.map((f) => (
             <button
@@ -116,22 +135,30 @@ function FindingsPage() {
                 <div className="mt-5 grid gap-5 md:grid-cols-3">
                   <div>
                     <h4 className="label-eyebrow">Synthetic evidence summary</h4>
-                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{f.evidence}</p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                      {f.evidence}
+                    </p>
                   </div>
                   <div>
                     <h4 className="label-eyebrow">Business impact</h4>
-                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{f.businessImpact}</p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                      {f.businessImpact}
+                    </p>
                   </div>
                   <div>
                     <h4 className="label-eyebrow">Recommended remediation</h4>
-                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{f.remediation}</p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                      {f.remediation}
+                    </p>
                   </div>
                 </div>
 
                 <dl className="mt-5 grid gap-3 border-t border-border pt-4 text-xs sm:grid-cols-2 lg:grid-cols-4">
                   <div>
                     <dt className="label-eyebrow">CWE</dt>
-                    <dd className="mt-1 font-mono text-muted-foreground">{f.cwe ?? "Not applicable"}</dd>
+                    <dd className="mt-1 font-mono text-muted-foreground">
+                      {f.cwe ?? "Not applicable"}
+                    </dd>
                   </div>
                   <div>
                     <dt className="label-eyebrow">OWASP Top 10</dt>
@@ -139,7 +166,9 @@ function FindingsPage() {
                   </div>
                   <div>
                     <dt className="label-eyebrow">MITRE ATT&amp;CK</dt>
-                    <dd className="mt-1 text-muted-foreground">{f.attack ?? "Not conceptually relevant"}</dd>
+                    <dd className="mt-1 text-muted-foreground">
+                      {f.attack ?? "Not conceptually relevant"}
+                    </dd>
                   </div>
                   <div>
                     <dt className="label-eyebrow">NIST CSF 2.0</dt>
@@ -157,10 +186,11 @@ function FindingsPage() {
           <Panel>
             <h3 className="text-sm font-semibold">Rating basis</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Severity reflects realistic exploitability in the lab environment combined with business consequence if
-              the weakness were abused. A weakness that is trivially reachable but low-consequence is rated below one
-              that requires an authenticated foothold yet crosses a tenant boundary. Where validation could not be
-              completed non-destructively, confidence is recorded as Moderate rather than inflating severity.
+              Severity reflects realistic exploitability in the lab environment combined with
+              business consequence if the weakness were abused. A weakness that is trivially
+              reachable but low-consequence is rated below one that requires an authenticated
+              foothold yet crosses a tenant boundary. Where validation could not be completed
+              non-destructively, confidence is recorded as Moderate rather than inflating severity.
             </p>
           </Panel>
           <ResponsibleTestingNotice compact />

@@ -53,7 +53,10 @@ function ReportPage() {
   return (
     <>
       <header className="relative overflow-hidden border-b border-border">
-        <div aria-hidden className="grid-backdrop pointer-events-none absolute inset-0 opacity-50" />
+        <div
+          aria-hidden
+          className="grid-backdrop pointer-events-none absolute inset-0 opacity-50"
+        />
         <div aria-hidden className="hero-glow pointer-events-none absolute inset-0" />
         <div className="relative mx-auto w-full max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <p className="label-eyebrow">Phase 09 · Executive reporting · Export-ready layout</p>
@@ -64,8 +67,9 @@ function ReportPage() {
             {engagement.client} · {engagement.reportVersion} · Prepared by {portfolioMeta.author}
           </p>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            This is an on-screen, export-ready report layout demonstrating how findings are communicated to leadership.
-            No real client report exists and no real organization was assessed.
+            This is an on-screen, export-ready report layout demonstrating how findings are
+            communicated to leadership. No real client report exists and no real organization was
+            assessed.
           </p>
         </div>
       </header>
@@ -73,20 +77,22 @@ function ReportPage() {
       <Section title="1 · Executive summary">
         <Panel>
           <p className="text-sm leading-relaxed text-foreground/90">
-            An authorized, time-boxed assessment of the synthetic {engagement.client} environment validated{" "}
-            {kpis.findingsValidated} findings across {kpis.assetsInScope} in-scope assets: {kpis.critical} Critical,{" "}
-            {kpis.high} High, {kpis.medium} Medium, and {kpis.low} Low. The dominant theme was authorization enforced
-            inconsistently between the interface and the server, compounded by identity entitlements broader than their
-            documented purpose. Individually moderate configuration weaknesses combined into{" "}
-            {attackPaths.length} illustrative attack paths, two of which remain open pending segmentation and
+            An authorized, time-boxed assessment of the synthetic {engagement.client} environment
+            validated {kpis.findingsValidated} findings across {kpis.assetsInScope} in-scope assets:{" "}
+            {kpis.critical} Critical, {kpis.high} High, {kpis.medium} Medium, and {kpis.low} Low.
+            The dominant theme was authorization enforced inconsistently between the interface and
+            the server, compounded by identity entitlements broader than their documented purpose.
+            Individually moderate configuration weaknesses combined into {attackPaths.length}{" "}
+            illustrative attack paths, two of which remain open pending segmentation and
             non-human-identity work.
           </p>
           <p className="mt-4 text-sm leading-relaxed text-foreground/90">
-            {kpis.remediated} findings have been remediated or closed and {kpis.retestPassed} passed retest against
-            reviewed evidence, including the single Critical access-control issue. Remaining exposure is concentrated in
-            internal containment rather than internet-facing entry points, which lowers immediate likelihood while
-            keeping consequence high if a foothold is ever obtained. The recommended focus is completing segmentation
-            tightening, retiring unowned service identities, and restoring privileged-action audit coverage.
+            {kpis.remediated} findings have been remediated or closed and {kpis.retestPassed} passed
+            retest against reviewed evidence, including the single Critical access-control issue.
+            Remaining exposure is concentrated in internal containment rather than internet-facing
+            entry points, which lowers immediate likelihood while keeping consequence high if a
+            foothold is ever obtained. The recommended focus is completing segmentation tightening,
+            retiring unowned service identities, and restoring privileged-action audit coverage.
           </p>
         </Panel>
       </Section>
@@ -132,7 +138,10 @@ function ReportPage() {
         </div>
       </Section>
 
-      <Section title="5 · Top findings" description="Critical and High severity synthetic findings.">
+      <Section
+        title="5 · Top findings"
+        description="Critical and High severity synthetic findings."
+      >
         <div className="space-y-3">
           {top.map((f) => (
             <Panel key={f.id} className="p-5">
@@ -144,7 +153,9 @@ function ReportPage() {
                 </div>
               </div>
               <h3 className="mt-1 text-sm font-semibold">{f.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.businessImpact}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {f.businessImpact}
+              </p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 <span className="text-foreground">Recommendation: </span>
                 {f.remediation}
@@ -192,9 +203,15 @@ function ReportPage() {
                   <td className="px-4 py-3 font-mono text-xs">{item.priority}</td>
                   <td className="px-4 py-3 font-mono text-xs text-primary">{item.findingId}</td>
                   <td className="px-4 py-3 text-muted-foreground">{item.owner}</td>
-                  <td className="px-4 py-3 font-mono text-xs text-muted-foreground">{item.targetDate}</td>
-                  <td className="px-4 py-3"><StatusPill value={item.status} /></td>
-                  <td className="px-4 py-3"><StatusPill value={item.retest} /></td>
+                  <td className="px-4 py-3 font-mono text-xs text-muted-foreground">
+                    {item.targetDate}
+                  </td>
+                  <td className="px-4 py-3">
+                    <StatusPill value={item.status} />
+                  </td>
+                  <td className="px-4 py-3">
+                    <StatusPill value={item.retest} />
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -205,11 +222,11 @@ function ReportPage() {
       <Section title="8 · Retest summary">
         <Panel>
           <p className="text-sm leading-relaxed text-foreground/90">
-            {kpis.retestPassed} of {kpis.findingsValidated} findings passed retest against reviewed evidence, including
-            EH-001 (broken access control) and EH-002 (over-permissioned test role). Three findings remain in
-            remediation with compensating controls in place and no retest yet performed: EH-003 (segmentation), EH-009
-            (stale service identity), and EH-012 (privileged-action logging). No finding was closed on the basis of a
-            change alone.
+            {kpis.retestPassed} of {kpis.findingsValidated} findings passed retest against reviewed
+            evidence, including EH-001 (broken access control) and EH-002 (over-permissioned test
+            role). Three findings remain in remediation with compensating controls in place and no
+            retest yet performed: EH-003 (segmentation), EH-009 (stale service identity), and EH-012
+            (privileged-action logging). No finding was closed on the basis of a change alone.
           </p>
         </Panel>
       </Section>
@@ -219,11 +236,11 @@ function ReportPage() {
           <Panel>
             <h3 className="text-sm font-semibold">Current position</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              After the retested fixes, no Critical exposure remains in the synthetic environment. Residual risk is
-              rated Medium overall and is driven by internal containment: the application-to-data-tier network path is
-              still broader than designed, and one unowned service identity remains enabled. Both reduce the cost of
-              lateral movement after any initial foothold, and weak privileged-action auditing extends the time to
-              detect it.
+              After the retested fixes, no Critical exposure remains in the synthetic environment.
+              Residual risk is rated Medium overall and is driven by internal containment: the
+              application-to-data-tier network path is still broader than designed, and one unowned
+              service identity remains enabled. Both reduce the cost of lateral movement after any
+              initial foothold, and weak privileged-action auditing extends the time to detect it.
             </p>
           </Panel>
           <Panel>

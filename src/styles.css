@@ -126,7 +126,8 @@
   --sidebar-border: oklch(0.3 0.03 258);
   --sidebar-ring: oklch(0.74 0.115 205);
 
-  --gradient-hero: radial-gradient(
+  --gradient-hero:
+    radial-gradient(
       120% 90% at 85% 0%,
       color-mix(in oklab, var(--primary) 18%, transparent),
       transparent 60%
@@ -137,7 +138,8 @@
       transparent 65%
     );
   --shadow-panel: 0 18px 45px -25px oklch(0.08 0.02 264 / 0.85);
-  --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--primary) 28%, transparent),
+  --shadow-glow:
+    0 0 0 1px color-mix(in oklab, var(--primary) 28%, transparent),
     0 12px 40px -20px color-mix(in oklab, var(--primary) 40%, transparent);
 }
 
@@ -176,7 +178,8 @@
 }
 
 @utility grid-backdrop {
-  background-image: linear-gradient(
+  background-image:
+    linear-gradient(
       to right,
       color-mix(in oklab, var(--border) 55%, transparent) 1px,
       transparent 1px

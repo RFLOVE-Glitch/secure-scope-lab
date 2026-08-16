@@ -32,15 +32,19 @@ function AttackSurfacePage() {
   return (
     <>
       <header className="relative overflow-hidden border-b border-border">
-        <div aria-hidden className="grid-backdrop pointer-events-none absolute inset-0 opacity-50" />
+        <div
+          aria-hidden
+          className="grid-backdrop pointer-events-none absolute inset-0 opacity-50"
+        />
         <div aria-hidden className="hero-glow pointer-events-none absolute inset-0" />
         <div className="relative mx-auto w-full max-w-6xl px-5 py-12 md:px-8 md:py-16">
           <p className="label-eyebrow">Phase 02–03 · Discovery &amp; surface analysis</p>
           <h1 className="mt-3 text-3xl font-semibold text-balance md:text-4xl">Attack Surface</h1>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            An inventory is only useful when it records who owns an asset and where its authentication boundary sits.
-            All identifiers, hostnames (<code className="font-mono text-xs">*.lab.invalid</code>), and addresses below
-            use reserved documentation ranges and are entirely synthetic and non-routable.
+            An inventory is only useful when it records who owns an asset and where its
+            authentication boundary sits. All identifiers, hostnames (
+            <code className="font-mono text-xs">*.lab.invalid</code>), and addresses below use
+            reserved documentation ranges and are entirely synthetic and non-routable.
           </p>
         </div>
       </header>
@@ -59,14 +63,21 @@ function AttackSurfacePage() {
                 </p>
                 <h3 className="mt-1 text-sm font-semibold">{zone}</h3>
                 {zoneAssets.length === 0 ? (
-                  <p className="mt-3 text-xs text-muted-foreground">No synthetic assets recorded in this zone.</p>
+                  <p className="mt-3 text-xs text-muted-foreground">
+                    No synthetic assets recorded in this zone.
+                  </p>
                 ) : (
                   <ul className="mt-3 space-y-2">
                     {zoneAssets.map((a) => (
-                      <li key={a.id} className="rounded-md border border-border bg-background/50 px-3 py-2">
+                      <li
+                        key={a.id}
+                        className="rounded-md border border-border bg-background/50 px-3 py-2"
+                      >
                         <p className="font-mono text-xs text-primary">{a.id}</p>
                         <p className="text-xs text-foreground">{a.name}</p>
-                        <p className="mt-1 font-mono text-[0.65rem] text-muted-foreground">{a.hostname}</p>
+                        <p className="mt-1 font-mono text-[0.65rem] text-muted-foreground">
+                          {a.hostname}
+                        </p>
                       </li>
                     ))}
                   </ul>
@@ -117,8 +128,12 @@ function AttackSurfacePage() {
                     <td className="px-4 py-3 font-mono text-xs text-primary">{a.id}</td>
                     <td className="px-4 py-3">
                       <span className="block font-medium">{a.name}</span>
-                      <span className="block font-mono text-[0.7rem] text-muted-foreground">{a.hostname}</span>
-                      <span className="block font-mono text-[0.7rem] text-muted-foreground">{a.network}</span>
+                      <span className="block font-mono text-[0.7rem] text-muted-foreground">
+                        {a.hostname}
+                      </span>
+                      <span className="block font-mono text-[0.7rem] text-muted-foreground">
+                        {a.network}
+                      </span>
                     </td>
                     <td className="px-4 py-3 text-muted-foreground">{a.assetType}</td>
                     <td className="px-4 py-3 text-muted-foreground">{a.exposure}</td>
@@ -126,7 +141,9 @@ function AttackSurfacePage() {
                     <td className="px-4 py-3 text-muted-foreground">{a.technologyFamily}</td>
                     <td className="px-4 py-3 text-muted-foreground">{a.owner}</td>
                     <td className="px-4 py-3 text-muted-foreground">{a.authBoundary}</td>
-                    <td className="px-4 py-3 font-mono text-xs text-muted-foreground">{a.lastReview}</td>
+                    <td className="px-4 py-3 font-mono text-xs text-muted-foreground">
+                      {a.lastReview}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -135,7 +152,10 @@ function AttackSurfacePage() {
         )}
       </Section>
 
-      <Section title="Risk notes by asset" description="Short analyst commentary carried forward into validation.">
+      <Section
+        title="Risk notes by asset"
+        description="Short analyst commentary carried forward into validation."
+      >
         <div className="grid gap-3 md:grid-cols-2">
           {assets.map((a) => (
             <Panel key={a.id} className="p-4">

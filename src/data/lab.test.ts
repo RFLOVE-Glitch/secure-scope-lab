@@ -24,7 +24,9 @@ describe("synthetic data integrity", () => {
     expect(findings).toHaveLength(12);
     const ids = findings.map((f) => f.id);
     expect(new Set(ids).size).toBe(12);
-    expect(ids).toEqual(Array.from({ length: 12 }, (_, i) => `EH-${String(i + 1).padStart(3, "0")}`));
+    expect(ids).toEqual(
+      Array.from({ length: 12 }, (_, i) => `EH-${String(i + 1).padStart(3, "0")}`),
+    );
   });
 
   it("has unique asset IDs and required lab zones", () => {
@@ -59,7 +61,14 @@ describe("synthetic data integrity", () => {
   });
 
   it("keeps evidence descriptive and free of operational payload markers", () => {
-    const banned = [/curl\s+-/i, /\bsqlmap\b/i, /\bnmap\s+-/i, /<script/i, /' or '1'='1/i, /\bmetasploit\b/i];
+    const banned = [
+      /curl\s+-/i,
+      /\bsqlmap\b/i,
+      /\bnmap\s+-/i,
+      /<script/i,
+      /' or '1'='1/i,
+      /\bmetasploit\b/i,
+    ];
     for (const f of findings) {
       for (const pattern of banned) {
         expect(pattern.test(f.evidence)).toBe(false);

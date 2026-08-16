@@ -83,7 +83,8 @@ export const assets: Asset[] = [
     hostname: "portal.lab.invalid",
     network: "198.51.100.11",
     lastReview: "2026-03-04",
-    riskNotes: "Primary tenant-facing entry point; carries several moderate configuration findings.",
+    riskNotes:
+      "Primary tenant-facing entry point; carries several moderate configuration findings.",
   },
   {
     id: "API-01",
@@ -446,7 +447,8 @@ export const attackPaths: AttackPath[] = [
       },
       {
         zone: "Application",
-        action: "Long-lived session remains valid well beyond policy, extending opportunity window.",
+        action:
+          "Long-lived session remains valid well beyond policy, extending opportunity window.",
         boundary: "Session assurance weakened",
       },
       {
@@ -530,7 +532,8 @@ export const attackPaths: AttackPath[] = [
     steps: [
       {
         zone: "Internal",
-        action: "Retired integration worker (SVC-03) retains an enabled identity with old credentials.",
+        action:
+          "Retired integration worker (SVC-03) retains an enabled identity with old credentials.",
         boundary: "Unowned non-human identity",
       },
       {
@@ -566,8 +569,10 @@ export const remediationBoard: RemediationItem[] = [
     status: "Closed",
     compensatingControl: "Temporary network allow-list on the admin console while the fix shipped",
     retest: "Pass",
-    before: "Administrative operation accepted a standard-role session; checks lived in the interface layer.",
-    after: "Deny-by-default server-side authorization per operation, covered by automated role tests.",
+    before:
+      "Administrative operation accepted a standard-role session; checks lived in the interface layer.",
+    after:
+      "Deny-by-default server-side authorization per operation, covered by automated role tests.",
   },
   {
     findingId: "EH-002",
@@ -622,7 +627,8 @@ export const remediationBoard: RemediationItem[] = [
     compensatingControl: "Edge-level frame and transport protections while CSP was tuned",
     retest: "Pass",
     before: "Baseline security headers absent from lab portal responses.",
-    after: "Baseline header set deployed at the edge with CSP in report-only, monitored for regression.",
+    after:
+      "Baseline header set deployed at the edge with CSP in report-only, monitored for regression.",
   },
   {
     findingId: "EH-008",
@@ -680,12 +686,14 @@ export const methodologySteps = [
   {
     step: "02",
     title: "Asset discovery",
-    detail: "Build an inventory of synthetic assets, owners, exposure, and authentication boundaries.",
+    detail:
+      "Build an inventory of synthetic assets, owners, exposure, and authentication boundaries.",
   },
   {
     step: "03",
     title: "Attack-surface analysis",
-    detail: "Group assets by trust zone and identify where the meaningful boundary transitions actually are.",
+    detail:
+      "Group assets by trust zone and identify where the meaningful boundary transitions actually are.",
   },
   {
     step: "04",
@@ -696,7 +704,8 @@ export const methodologySteps = [
   {
     step: "05",
     title: "Attack-path analysis",
-    detail: "Chain moderate findings to show where combined risk exceeds the sum of individual severities.",
+    detail:
+      "Chain moderate findings to show where combined risk exceeds the sum of individual severities.",
   },
   {
     step: "06",
@@ -711,7 +720,8 @@ export const methodologySteps = [
   {
     step: "08",
     title: "Retest",
-    detail: "Re-validate against evidence. A change alone is not closure; the retest result decides.",
+    detail:
+      "Re-validate against evidence. A change alone is not closure; the retest result decides.",
   },
   {
     step: "09",
@@ -770,7 +780,9 @@ export function countByAssetClass(items: Finding[] = findings) {
 }
 
 export function remediationStatusBreakdown() {
-  const remediated = findings.filter((f) => f.status === "Remediated" || f.status === "Closed").length;
+  const remediated = findings.filter(
+    (f) => f.status === "Remediated" || f.status === "Closed",
+  ).length;
   const inProgress = findings.filter((f) => f.status === "In Remediation").length;
   const open = findings.filter((f) => f.status === "Open" || f.status === "Accepted Risk").length;
   return [

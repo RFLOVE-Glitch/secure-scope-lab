@@ -3,7 +3,13 @@ import { z } from "zod";
 export const severitySchema = z.enum(["Critical", "High", "Medium", "Low"]);
 export type Severity = z.infer<typeof severitySchema>;
 
-export const findingStatusSchema = z.enum(["Open", "In Remediation", "Remediated", "Closed", "Accepted Risk"]);
+export const findingStatusSchema = z.enum([
+  "Open",
+  "In Remediation",
+  "Remediated",
+  "Closed",
+  "Accepted Risk",
+]);
 export const retestResultSchema = z.enum(["Pass", "Partial", "Fail", "Not Retested"]);
 export const confidenceSchema = z.enum(["Confirmed", "High", "Moderate"]);
 

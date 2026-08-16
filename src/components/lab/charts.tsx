@@ -42,10 +42,16 @@ export function SeverityChart({ data }: { data: { severity: string; count: numbe
           <CartesianGrid stroke="var(--color-border)" vertical={false} />
           <XAxis dataKey="severity" tickLine={false} {...axis} />
           <YAxis allowDecimals={false} tickLine={false} {...axis} />
-          <Tooltip contentStyle={tooltipStyle} cursor={{ fill: "var(--color-secondary)", opacity: 0.4 }} />
+          <Tooltip
+            contentStyle={tooltipStyle}
+            cursor={{ fill: "var(--color-secondary)", opacity: 0.4 }}
+          />
           <Bar dataKey="count" name="Validated findings" radius={[6, 6, 0, 0]}>
             {data.map((entry) => (
-              <Cell key={entry.severity} fill={severityColors[entry.severity] ?? "var(--color-primary)"} />
+              <Cell
+                key={entry.severity}
+                fill={severityColors[entry.severity] ?? "var(--color-primary)"}
+              />
             ))}
           </Bar>
         </BarChart>
@@ -62,7 +68,10 @@ export function AssetClassChart({ data }: { data: { zone: string; count: number 
           <CartesianGrid stroke="var(--color-border)" horizontal={false} />
           <XAxis type="number" allowDecimals={false} tickLine={false} {...axis} />
           <YAxis type="category" dataKey="zone" width={104} tickLine={false} {...axis} />
-          <Tooltip contentStyle={tooltipStyle} cursor={{ fill: "var(--color-secondary)", opacity: 0.4 }} />
+          <Tooltip
+            contentStyle={tooltipStyle}
+            cursor={{ fill: "var(--color-secondary)", opacity: 0.4 }}
+          />
           <Bar dataKey="count" name="Findings" fill="var(--color-primary)" radius={[0, 6, 6, 0]} />
         </BarChart>
       </ResponsiveContainer>
@@ -84,10 +93,34 @@ export function RiskTrendChart({
           <YAxis allowDecimals={false} tickLine={false} {...axis} />
           <Tooltip contentStyle={tooltipStyle} />
           <Legend wrapperStyle={{ fontSize: 12 }} />
-          <Line type="monotone" dataKey="critical" name="Critical" stroke="var(--color-critical)" strokeWidth={2} />
-          <Line type="monotone" dataKey="high" name="High" stroke="var(--color-high)" strokeWidth={2} />
-          <Line type="monotone" dataKey="medium" name="Medium" stroke="var(--color-medium)" strokeWidth={2} />
-          <Line type="monotone" dataKey="low" name="Low" stroke="var(--color-low)" strokeWidth={2} />
+          <Line
+            type="monotone"
+            dataKey="critical"
+            name="Critical"
+            stroke="var(--color-critical)"
+            strokeWidth={2}
+          />
+          <Line
+            type="monotone"
+            dataKey="high"
+            name="High"
+            stroke="var(--color-high)"
+            strokeWidth={2}
+          />
+          <Line
+            type="monotone"
+            dataKey="medium"
+            name="Medium"
+            stroke="var(--color-medium)"
+            strokeWidth={2}
+          />
+          <Line
+            type="monotone"
+            dataKey="low"
+            name="Low"
+            stroke="var(--color-low)"
+            strokeWidth={2}
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>

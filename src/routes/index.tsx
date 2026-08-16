@@ -54,13 +54,20 @@ function Index() {
   const byClass = countByAssetClass();
   const remediation = remediationStatusBreakdown();
   const topFindings = [...findings]
-    .sort((a, b) => ["Critical", "High", "Medium", "Low"].indexOf(a.severity) - ["Critical", "High", "Medium", "Low"].indexOf(b.severity))
+    .sort(
+      (a, b) =>
+        ["Critical", "High", "Medium", "Low"].indexOf(a.severity) -
+        ["Critical", "High", "Medium", "Low"].indexOf(b.severity),
+    )
     .slice(0, 5);
 
   return (
     <>
       <section className="relative overflow-hidden border-b border-border">
-        <div aria-hidden className="grid-backdrop pointer-events-none absolute inset-0 opacity-60" />
+        <div
+          aria-hidden
+          className="grid-backdrop pointer-events-none absolute inset-0 opacity-60"
+        />
         <div aria-hidden className="hero-glow pointer-events-none absolute inset-0" />
         <div className="relative mx-auto w-full max-w-6xl px-5 py-16 md:px-8 md:py-24">
           <Eyebrow>Project Nightwatch · Portfolio demonstration · {portfolioMeta.author}</Eyebrow>
@@ -71,10 +78,11 @@ function Index() {
             Authorized testing. Evidence-based findings. Actionable remediation.
           </p>
           <p className="mt-5 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            This lab models how Rachel Love approaches an authorized security assessment from scope through retest:
-            agreeing rules of engagement, inventorying the attack surface, validating each weakness with the minimum
-            necessary interaction, reasoning about how moderate issues chain into real business risk, partnering on
-            remediation, retesting against evidence, and reporting residual risk in language leadership can act on.
+            This lab models how Rachel Love approaches an authorized security assessment from scope
+            through retest: agreeing rules of engagement, inventorying the attack surface,
+            validating each weakness with the minimum necessary interaction, reasoning about how
+            moderate issues chain into real business risk, partnering on remediation, retesting
+            against evidence, and reporting residual risk in language leadership can act on.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
@@ -110,7 +118,9 @@ function Index() {
           {kpiCards.map((card) => (
             <Panel key={card.label} className="p-4">
               <p className="label-eyebrow">{card.label}</p>
-              <p className={`mt-2 font-display text-3xl font-semibold ${card.tone}`}>{card.value}</p>
+              <p className={`mt-2 font-display text-3xl font-semibold ${card.tone}`}>
+                {card.value}
+              </p>
             </Panel>
           ))}
         </div>
@@ -175,11 +185,21 @@ function Index() {
           <table className="w-full min-w-[640px] text-left text-sm">
             <thead className="bg-surface-raised">
               <tr>
-                <th scope="col" className="px-4 py-3 font-medium">ID</th>
-                <th scope="col" className="px-4 py-3 font-medium">Finding</th>
-                <th scope="col" className="px-4 py-3 font-medium">Severity</th>
-                <th scope="col" className="px-4 py-3 font-medium">Status</th>
-                <th scope="col" className="px-4 py-3 font-medium">Retest</th>
+                <th scope="col" className="px-4 py-3 font-medium">
+                  ID
+                </th>
+                <th scope="col" className="px-4 py-3 font-medium">
+                  Finding
+                </th>
+                <th scope="col" className="px-4 py-3 font-medium">
+                  Severity
+                </th>
+                <th scope="col" className="px-4 py-3 font-medium">
+                  Status
+                </th>
+                <th scope="col" className="px-4 py-3 font-medium">
+                  Retest
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -187,16 +207,25 @@ function Index() {
                 <tr key={f.id} className="border-t border-border bg-surface/60">
                   <td className="px-4 py-3 font-mono text-xs text-muted-foreground">{f.id}</td>
                   <td className="px-4 py-3">{f.title}</td>
-                  <td className="px-4 py-3"><SeverityBadge severity={f.severity} /></td>
-                  <td className="px-4 py-3"><StatusPill value={f.status} /></td>
-                  <td className="px-4 py-3"><StatusPill value={f.retest} /></td>
+                  <td className="px-4 py-3">
+                    <SeverityBadge severity={f.severity} />
+                  </td>
+                  <td className="px-4 py-3">
+                    <StatusPill value={f.status} />
+                  </td>
+                  <td className="px-4 py-3">
+                    <StatusPill value={f.retest} />
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
         <div className="mt-4">
-          <Link to="/findings" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline">
+          <Link
+            to="/findings"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+          >
             All 12 validated findings <ArrowRight className="size-4" aria-hidden />
           </Link>
         </div>
@@ -225,11 +254,12 @@ function Index() {
           <Panel>
             <h3 className="text-sm font-semibold">Coursework and reasoning basis</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              The methodology here draws on ethical-hacking coursework, security architecture reasoning, and hands-on
-              lab practice against intentionally vulnerable environments. It reflects study and self-directed lab work
-              — not a professional penetration-testing certification, and not a real-world client engagement. The
-              emphasis is deliberately on the parts of the discipline that outlast any single technique: authorization,
-              evidence quality, impact framing, remediation partnership, and retest discipline.
+              The methodology here draws on ethical-hacking coursework, security architecture
+              reasoning, and hands-on lab practice against intentionally vulnerable environments. It
+              reflects study and self-directed lab work — not a professional penetration-testing
+              certification, and not a real-world client engagement. The emphasis is deliberately on
+              the parts of the discipline that outlast any single technique: authorization, evidence
+              quality, impact framing, remediation partnership, and retest discipline.
             </p>
           </Panel>
           <Panel>
@@ -251,7 +281,10 @@ function Index() {
                 <dt className="label-eyebrow">Tools &amp; technologies</dt>
                 <dd className="mt-1 flex flex-wrap gap-1.5">
                   {portfolioMeta.tools.map((tool) => (
-                    <span key={tool} className="rounded-md border border-border bg-secondary px-2 py-0.5 text-xs">
+                    <span
+                      key={tool}
+                      className="rounded-md border border-border bg-secondary px-2 py-0.5 text-xs"
+                    >
                       {tool}
                     </span>
                   ))}
