@@ -752,8 +752,8 @@ export const portfolioMeta = {
     "Zod",
     "Vitest",
   ],
-  github: "https://github.com/  — repository link placeholder",
-  liveDemo: "https://rachellove.tech — live demo link placeholder",
+  github: "https://github.com/RFLOVE-Glitch/secure-scope-lab",
+  liveDemo: "Deployed URL pending publication",
   author: AUTHOR,
 } as const;
 
@@ -800,7 +800,7 @@ export const riskTrend = [
 ];
 
 export const kpis = {
-  assetsInScope: 18,
+  assetsInScope: assets.length,
   findingsValidated: findings.length,
   critical: findings.filter((f) => f.severity === "Critical").length,
   high: findings.filter((f) => f.severity === "High").length,
