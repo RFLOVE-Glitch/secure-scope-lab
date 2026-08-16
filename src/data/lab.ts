@@ -753,7 +753,7 @@ export const portfolioMeta = {
     "Vitest",
   ],
   github: "https://github.com/RFLOVE-Glitch/secure-scope-lab",
-  liveDemo: "Deployed URL pending publication",
+  liveDemo: "https://ethical-hacking-attack-surface-validation-lab.lovable.app",
   author: AUTHOR,
 } as const;
 
