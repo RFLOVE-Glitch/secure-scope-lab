@@ -302,7 +302,14 @@ function Index() {
                     {portfolioMeta.github}
                   </a>
                   <br />
-                  {portfolioMeta.liveDemo}
+                  <a
+                    href={portfolioMeta.liveDemo}
+                    className="underline underline-offset-4 transition-colors hover:text-primary focus-visible:text-primary"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    {portfolioMeta.liveDemo}
+                  </a>
                 </dd>
               </div>
             </dl>

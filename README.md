@@ -100,4 +100,4 @@ bun run build        # production build
   attack paths, a remediation and retest board, framework cross-references, and an export-ready final report.
 - **Tools:** React 19, TanStack Start, TypeScript, Tailwind CSS v4, shadcn/ui, Recharts, Zod, Vitest.
 - **GitHub:** https://github.com/RFLOVE-Glitch/secure-scope-lab
-- **Live demo:** _placeholder — deployed URL to be added._
+- **Live demo:** https://ethical-hacking-attack-surface-validation-lab.lovable.app
