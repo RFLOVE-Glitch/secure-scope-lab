@@ -293,7 +293,14 @@ function Index() {
               <div>
                 <dt className="label-eyebrow">Links</dt>
                 <dd className="mt-1 font-mono text-xs text-muted-foreground">
-                  {portfolioMeta.github}
+                  <a
+                    href={portfolioMeta.github}
+                    className="underline underline-offset-4 transition-colors hover:text-primary focus-visible:text-primary"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    {portfolioMeta.github}
+                  </a>
                   <br />
                   {portfolioMeta.liveDemo}
                 </dd>

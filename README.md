@@ -99,5 +99,5 @@ bun run build        # production build
 - **Outcome:** A recruiter-reviewable engagement portal with 8 synthetic assets, 12 validated findings, 3 illustrative
   attack paths, a remediation and retest board, framework cross-references, and an export-ready final report.
 - **Tools:** React 19, TanStack Start, TypeScript, Tailwind CSS v4, shadcn/ui, Recharts, Zod, Vitest.
-- **GitHub:** _placeholder — repository link to be added._
+- **GitHub:** https://github.com/RFLOVE-Glitch/secure-scope-lab
 - **Live demo:** _placeholder — deployed URL to be added._
