@@ -89,6 +89,10 @@ describe("synthetic data integrity", () => {
 describe("derived metrics", () => {
   it("matches KPI counts to the register", () => {
     expect(kpis.findingsValidated).toBe(findings.length);
+    expect(kpis.assetsInScope).toBe(assets.length);
+    expect(kpis.remediated).toBe(9);
+    expect(kpis.retestPassed).toBe(9);
+    expect(attackPaths).toHaveLength(3);
     expect(kpis.critical).toBe(1);
     expect(kpis.high).toBe(3);
     expect(kpis.medium).toBe(5);
