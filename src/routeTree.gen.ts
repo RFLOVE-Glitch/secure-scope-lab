@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AttackPathsRouteImport } from './routes/attack-paths'
+import { Route as AttackSurfaceRouteImport } from './routes/attack-surface'
+import { Route as FindingsRouteImport } from './routes/findings'
+import { Route as FrameworkRouteImport } from './routes/framework'
+import { Route as RemediationRouteImport } from './routes/remediation'
+import { Route as ReportRouteImport } from './routes/report'
+import { Route as ScopeRouteImport } from './routes/scope'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AttackPathsRoute = AttackPathsRouteImport.update({
+  id: '/attack-paths',
+  path: '/attack-paths',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AttackSurfaceRoute = AttackSurfaceRouteImport.update({
+  id: '/attack-surface',
+  path: '/attack-surface',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FindingsRoute = FindingsRouteImport.update({
+  id: '/findings',
+  path: '/findings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FrameworkRoute = FrameworkRouteImport.update({
+  id: '/framework',
+  path: '/framework',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RemediationRoute = RemediationRouteImport.update({
+  id: '/remediation',
+  path: '/remediation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportRoute = ReportRouteImport.update({
+  id: '/report',
+  path: '/report',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScopeRoute = ScopeRouteImport.update({
+  id: '/scope',
+  path: '/scope',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/attack-paths': typeof AttackPathsRoute
+  '/attack-surface': typeof AttackSurfaceRoute
+  '/findings': typeof FindingsRoute
+  '/framework': typeof FrameworkRoute
+  '/remediation': typeof RemediationRoute
+  '/report': typeof ReportRoute
+  '/scope': typeof ScopeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/attack-paths': typeof AttackPathsRoute
+  '/attack-surface': typeof AttackSurfaceRoute
+  '/findings': typeof FindingsRoute
+  '/framework': typeof FrameworkRoute
+  '/remediation': typeof RemediationRoute
+  '/report': typeof ReportRoute
+  '/scope': typeof ScopeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/attack-paths': typeof AttackPathsRoute
+  '/attack-surface': typeof AttackSurfaceRoute
+  '/findings': typeof FindingsRoute
+  '/framework': typeof FrameworkRoute
+  '/remediation': typeof RemediationRoute
+  '/report': typeof ReportRoute
+  '/scope': typeof ScopeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/attack-paths'
+    | '/attack-surface'
+    | '/findings'
+    | '/framework'
+    | '/remediation'
+    | '/report'
+    | '/scope'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/attack-paths'
+    | '/attack-surface'
+    | '/findings'
+    | '/framework'
+    | '/remediation'
+    | '/report'
+    | '/scope'
+  id:
+    | '__root__'
+    | '/'
+    | '/attack-paths'
+    | '/attack-surface'
+    | '/findings'
+    | '/framework'
+    | '/remediation'
+    | '/report'
+    | '/scope'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AttackPathsRoute: typeof AttackPathsRoute
+  AttackSurfaceRoute: typeof AttackSurfaceRoute
+  FindingsRoute: typeof FindingsRoute
+  FrameworkRoute: typeof FrameworkRoute
+  RemediationRoute: typeof RemediationRoute
+  ReportRoute: typeof ReportRoute
+  ScopeRoute: typeof ScopeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/attack-paths': {
+      id: '/attack-paths'
+      path: '/attack-paths'
+      fullPath: '/attack-paths'
+      preLoaderRoute: typeof AttackPathsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/attack-surface': {
+      id: '/attack-surface'
+      path: '/attack-surface'
+      fullPath: '/attack-surface'
+      preLoaderRoute: typeof AttackSurfaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/findings': {
+      id: '/findings'
+      path: '/findings'
+      fullPath: '/findings'
+      preLoaderRoute: typeof FindingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/framework': {
+      id: '/framework'
+      path: '/framework'
+      fullPath: '/framework'
+      preLoaderRoute: typeof FrameworkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/remediation': {
+      id: '/remediation'
+      path: '/remediation'
+      fullPath: '/remediation'
+      preLoaderRoute: typeof RemediationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report': {
+      id: '/report'
+      path: '/report'
+      fullPath: '/report'
+      preLoaderRoute: typeof ReportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scope': {
+      id: '/scope'
+      path: '/scope'
+      fullPath: '/scope'
+      preLoaderRoute: typeof ScopeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AttackPathsRoute: AttackPathsRoute,
+  AttackSurfaceRoute: AttackSurfaceRoute,
+  FindingsRoute: FindingsRoute,
+  FrameworkRoute: FrameworkRoute,
+  RemediationRoute: RemediationRoute,
+  ReportRoute: ReportRoute,
+  ScopeRoute: ScopeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
