@@ -80,13 +80,11 @@ function ReportPage() {
             This portfolio simulation models an authorized, time-boxed assessment of the{" "}
             {engagement.client} environment, in which {kpis.findingsValidated} findings were
             validated across 8 in-scope synthetic assets: {kpis.critical} Critical, {kpis.high}{" "}
-            High, {kpis.medium} Medium, and {kpis.low} Low.
-
-            The dominant theme was authorization enforced inconsistently between the interface and
-            the server, compounded by identity entitlements broader than their documented purpose.
-            Individually moderate configuration weaknesses combined into {attackPaths.length}{" "}
-            illustrative attack paths, two of which remain open pending segmentation and
-            non-human-identity work.
+            High, {kpis.medium} Medium, and {kpis.low} Low. The dominant theme was authorization
+            enforced inconsistently between the interface and the server, compounded by identity
+            entitlements broader than their documented purpose. Individually moderate configuration
+            weaknesses combined into {attackPaths.length} illustrative attack paths, two of which
+            remain open pending segmentation and non-human-identity work.
           </p>
           <p className="mt-4 text-sm leading-relaxed text-foreground/90">
             {kpis.remediated} findings have been remediated or closed and {kpis.retestPassed} passed
